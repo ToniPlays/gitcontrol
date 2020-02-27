@@ -54,7 +54,22 @@ html {
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
-
+.avatar-image {
+  height: auto;
+  width: 100px;
+}
+.notification-container {
+  position: fixed;
+  display: inline-block;
+  right: 15px;
+  bottom: 0px;
+  width: 25%;
+}
+.closebtn {
+  float: right;
+  font-size: 1.75em;
+  cursor: pointer;
+}
 body {
   margin: 0;
   font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
