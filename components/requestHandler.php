@@ -13,6 +13,7 @@ class RequestHandler {
 
   //Construct new insntace
   function __construct($request, $gitClient) {
+    //Set client and request
     self::$request = $request;
     self::$client = $gitClient;
   }
@@ -43,6 +44,7 @@ class RequestHandler {
     $json = array("kind" => self::$request['request'], "status" => self::$status);
     $json['items'] = self::$items;
     $json['errors'] = self::$errors;
+    //Echo final response
     echo json_encode($json);
   }
 }

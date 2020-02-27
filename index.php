@@ -7,18 +7,21 @@
 ?>
 <body class="bg-dark">
   <?php
+  //Create topnav
   new TopNav();
    ?>
   <div id="content" class="container">
   </div>
 
   <?php
+    //Include files needed to request anything
     require "js/request.php";
   ?>
-
   <script>
   //Request user repositories
-  function GetUserRepositories(user) {
+  function GetUserRepositories() {
+    var user = document.getElementById('user').value;
+    if(user == undefined || user == "") return;
     //Create request object
     var request = {
       "request": "Get user repositories",
@@ -37,6 +40,7 @@
     });
   }
   function RepositoryInfo(id) {
+    //Create request
     var request = {
       "request": "Get repository info",
       "items": [{
@@ -48,6 +52,7 @@
         }
       }]
     }
+    //Send request and process response
     Request(request, function(response) {
       document.getElementById('content').innerHTML = response.items[0];
     });

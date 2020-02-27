@@ -30,7 +30,9 @@ class Repository {
       $result .= "<tr onclick=\"RepositoryInfo('".$repo['full_name']."')\">";
       foreach ($info as $k => $v) {
         $r = $repo[$k];
+        //Check if type is date
         if($v == "date") {
+          //Format date
           $r = Date::From($r);
         }
         $result .= "<td>".$r."</td>";

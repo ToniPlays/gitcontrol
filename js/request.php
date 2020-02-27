@@ -1,3 +1,4 @@
+<!--Notification container-->
 <div id="notifications" class="notification-container"></div>
 
 <script>
@@ -28,16 +29,18 @@ function Request(request, callback) {
 }
 
 function Notify(status, title, container) {
-
+  //Colors and titles;
   var colors = ["success", "warning", "danger"];
   var titles = ["Success!", "Warning!", "Error!"];
   var notification = document.createElement("DIV");
-
+  //Make new notification
   notification.innerHTML = "<div onclick=\"Close(this)\" class=\"alert alert-" + colors[status] + "\">" +
   "<p><strong>" + titles[status] + " </strong></p>" +
-  title + "</div>";
+  title +
+  "</div>";
   container.appendChild(notification);
 }
+//Close specific notification by fading out
 function Close(div) {
   div.style.opacity = "0";
   setTimeout(function(){ div.style.display = "none"; }, 600);
