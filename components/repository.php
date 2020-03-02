@@ -5,9 +5,12 @@ class Repository {
     $user = $values['user'];
     //List user repositories
     try {
-      $repositories = $client->api('user')->repositories($user);
-      return Repository::ListRepositories($repositories);
 
+      $repositories = $client->api('user')->repositories($user);
+      $result = "<h2 class=\"text-primary\">".ucfirst($user)."</h2>";
+      $result .= Repository::ListRepositories($repositories);
+
+      return $result;
     } catch (Exception $e) {
         RequestHandler::Error($e->getMessage(), 1);
       return "";
@@ -15,7 +18,7 @@ class Repository {
   }
   function ListRepositories($repositories) {
     //Info contains all columns of table
-    $info = ["name" => "text", "description" => "text", "language" => "text", 'pushed_at' => "date"];
+    $info = ["name" => "text", "description" => "text", "language" => "text", 'pushed_at' => "date", "size" => "text"];
 
     //Make table headers
     $result = "<table class=\"table table-hover table-striped table-dark border-0\">
